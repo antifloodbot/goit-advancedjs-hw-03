@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises Generator</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        padding: 32px 0 32px 50px;
+        color: #222;
+        background-color: #fafafa;
+      }
+
+      .form {
+        display: grid;
+        gap: 20px;
+        max-width: 360px;
+        margin: 0;
+      }
+
+      .form label {
+        display: grid;
+        gap: 8px;
+        font-size: 16px;
+      }
+
+      input[type='number'] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #b3b3b3;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      input[type='number']:focus {
+        border-color: #666;
+      }
+
+      input[type='number']::-webkit-outer-spin-button,
+      input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type='number'] {
+        -moz-appearance: textfield;
+      }
+
+      fieldset {
+        border: 1px solid #b3b3b3;
+        border-radius: 8px;
+        padding: 14px 16px;
+      }
+
+      legend {
+        padding: 0 6px;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .radio-row {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .radio-row label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+      }
+
+      input[type='radio'] {
+        accent-color: #6b6b6b;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      /* Кнопка */
+      button[type='submit'] {
+        width: 100%;
+        height: 42px;
+        border: 1px solid #b3b3b3;
+        border-radius: 8px;
+        background: #eee;
+        color: #222;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      button[type='submit']:hover {
+        background: #e4e4e4;
+      }
+
+      button[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    </style>
+    <script type="module" crossorigin src="/goit-advancedjs-hw-02/2-snackbar.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-02/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-02/assets/vendor-DZUL3YK5.js">
+    <link rel="stylesheet" crossorigin href="/goit-advancedjs-hw-02/assets/vendor-BtLRZPPU.css">
+  </head>
+  <body>
+    <form class="form" autocomplete="off">
+      <label>
+        Delay (ms)
+        <input type="number" name="delay" min="0" required />
+      </label>
+
+      <fieldset>
+        <legend>State</legend>
+        <div class="radio-row">
+          <label>
+            <input type="radio" name="state" value="fulfilled" required />
+            Fulfilled
+          </label>
+          <label>
+            <input type="radio" name="state" value="rejected" required />
+            Rejected
+          </label>
+        </div>
+      </fieldset>
+
+      <button type="submit">Create notification</button>
+    </form>
+
+  </body>
+</html>
