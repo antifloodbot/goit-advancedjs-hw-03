@@ -16,7 +16,8 @@ export function clearGallery() {
 export function renderImages(images) {
   const markup = images
     .map(
-      img => `
+      img =>       `
+      <div class="card">
         <a class="gallery__item" href="${img.largeImageURL}">
           <img
             class="gallery__image"
@@ -24,13 +25,27 @@ export function renderImages(images) {
             alt="${img.tags}"
             loading="lazy"
           />
-          <div class="info">
-            <p><b>Likes:</b> ${img.likes}</p>
-            <p><b>Views:</b> ${img.views}</p>
-            <p><b>Comments:</b> ${img.comments}</p>
-            <p><b>Downloads:</b> ${img.downloads}</p>
-          </div>
         </a>
+
+        <div class="info">
+          <div class="info-item">
+            <span class="label">Likes</span>
+            <span class="value">${img.likes}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Views</span>
+            <span class="value">${img.views}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Comments</span>
+            <span class="value">${img.comments}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Downloads</span>
+            <span class="value">${img.downloads}</span>
+          </div>
+        </div>
+      </div>
       `
     )
     .join('');
