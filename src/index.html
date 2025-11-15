@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Search</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
     <main class="container">
-      <!-- Search Form -->
       <form id="search-form" class="search-form">
         <input
           type="text"
@@ -18,15 +17,9 @@
         />
         <button type="submit">Search</button>
       </form>
-
-      <!-- Loader -->
       <div id="loader" hidden class="loader">Loading...</div>
-
-      <!-- Gallery -->
       <ul id="gallery" class="gallery"></ul>
     </main>
-
-    <!-- Main JS -->
     <script type="module" src="main.js"></script>
   </body>
 </html>

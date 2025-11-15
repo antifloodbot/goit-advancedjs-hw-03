@@ -7,13 +7,11 @@ import SortCss from 'postcss-sort-media-queries';
 export default defineConfig(({ command }) => ({
   base: '/goit-advancedjs-hw-03/',
   define: { [command === 'serve' ? 'global' : '_global']: {} },
-
   root: 'src',
-
   server: {
     open: '/index.html',
   },
-
+  
   build: {
     sourcemap: true,
     rollupOptions: {
