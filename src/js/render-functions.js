@@ -4,6 +4,10 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+import errorIcon from '../img/vectors/circle_Vector_left.svg';
+import closeIcon from '../img/vectors/close_Vector_right.svg';
+import xInsideIcon from '../img/vectors/X_Vector_left.svg';
+
 const gallery = document.querySelector('#gallery');
 const loader = document.querySelector('#loader');
 
@@ -16,7 +20,7 @@ export function clearGallery() {
 export function renderImages(images) {
   const markup = images
     .map(
-      img =>       `
+      img => `
       <div class="card">
         <a class="gallery__item" href="${img.largeImageURL}">
           <img
@@ -63,17 +67,38 @@ export function renderImages(images) {
 }
 
 export function showLoader() {
-  loader.hidden = false;
+  if (loader) {
+    loader.style.display = 'block';
+  }
 }
 
 export function hideLoader() {
-  loader.hidden = true;
+  if (loader) {
+    loader.style.display = 'none';
+  }
 }
 
 export function showError(message) {
+  document.documentElement.style.setProperty(
+    '--x-inside-icon',
+    `url(${xInsideIcon})`
+  );
+  document.documentElement.style.setProperty(
+    '--close-icon',
+    `url(${closeIcon})`
+  );
+
   iziToast.error({
     message,
     position: 'topRight',
+    timeout: 4000,
+    close: true,
+    closeOnClick: true,
+    progressBar: true,
+    drag: false,
+    maxWidth: 432,
+    layout: 2,
+    iconUrl: errorIcon,
   });
 }
 
